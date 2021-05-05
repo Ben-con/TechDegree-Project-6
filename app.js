@@ -19,14 +19,13 @@ btnReset.addEventListener("click", () =>{
    overLay.style.display = "none"
 })
 function getRandomArray() {
- const randomNumber = Math.floor(Math.random() * words.length)
-  words[randomNumber]  
-  return words[randomNumber]
+ const randomNumber = words[Math.floor(Math.random() * words.length)]
+ return randomNumber
 }
 
 
 
-console.log(words)
+console.log(getRandomArray(words))
 
 
 
