@@ -2,6 +2,7 @@ const qwerty = document.getElementById ("qwerty")
 const overLay = document.getElementById ("overlay")
 const phrase = document.getElementById ("phrase")
 const btnReset = document.querySelector (".btn__reset")
+
 let wrongAnswers = 0
 let words = [
 'The early bird gets the word',
@@ -12,16 +13,20 @@ let words = [
 'Ignorance is bliss']
 
 
+
+
 btnReset.addEventListener("click", () =>{
    overLay.style.display = "none"
 })
 function getRandomArray() {
-   return words.randomNumber = Math.floor(Math.random() * words.length + 1)
-    
+ const randomNumber = Math.floor(Math.random() * words.length)
+  words[randomNumber]  
+  return words[randomNumber]
 }
 
 
 
+console.log(words)
 
 
 
