@@ -44,19 +44,20 @@ const randomWord = getRandomArray(words)
 addPhraseToDisplay(randomWord)
 
 
-const letters = document.getElementsByClassName('letter')
+const letters = document.querySelectorAll('.letter');
 const checkLetter = (button) => {
    let right = "null"
-   for(let i = 0;i < letters.length; i ++){
+   for(i = 0;i < letters.length; i ++){
    if(button === letters[i].textContent.toLowerCase()){
       letters[i].classList.add('show')
       right = true
    }
-   return right
+   
 }
+return right
 }
 const lives = document.querySelectorAll (".tries img")
-qwerty.addEventListener ('click', (ev) => {
+qwerty.addEventListener ('click', ev => {
    if (ev.target.tagName === "BUTTON") {
       ev.target.style.display = "none"
       
@@ -70,5 +71,7 @@ qwerty.addEventListener ('click', (ev) => {
       }
 
 
-})
+      
+
+});
 console.log(randomWord)
