@@ -46,7 +46,7 @@ addPhraseToDisplay(randomWord)
 
 const letters = document.getElementsByClassName('letter')
 const checkLetter = (button) => {
-   const right = "null"
+   let right = "null"
    for(let i = 0;i < letters.length; i ++){
    if(button === letters[i].textContent.toLowerCase()){
       letters[i].classList.add('show')
@@ -57,16 +57,18 @@ const checkLetter = (button) => {
 }
 const lives = document.querySelectorAll (".tries img")
 qwerty.addEventListener ('click', (ev) => {
-   if(ev.target.className === "BUTTON"){
-      ev.target.className = 'chosen'
+   if (ev.target.tagName === "BUTTON") {
       ev.target.style.display = "none"
       
-      const match = checkLetter(ev.target.textContent.toLowerCase());
-   };
-   if(match === "null"){
-      lives[wrongAnswers].srcs = "images/lostHeart.jpg"
-      wrongAnswers ++
    }
+      const match = checkLetter(ev.target.textContent.toLowerCase());
+      if (match === null) {
+
+        
+        lives[wrongAnswers].src = 'images/lostHeart.png';
+        wrongAnswers++;
+      }
 
 
 })
+console.log(randomWord)
