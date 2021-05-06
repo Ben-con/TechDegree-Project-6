@@ -5,11 +5,11 @@ const btnReset = document.querySelector (".btn__reset")
 
 let wrongAnswers = 0
 let words = [
-'The early bird gets the word',
+'rise and shine',
 'wild goose chase',
-'Your guess is as good as mine',
-'By the skin of your teeth',
-'Get a taste of your own medicine',
+'Good as Gold',
+'A diamond in the rough',
+'As good as it gets',
 'Ignorance is bliss']
 
 
@@ -70,9 +70,12 @@ qwerty.addEventListener ('click', (ev) => {
       wrongAnswers++
    }
    checkWin()
-}});
+   
+}
+reset()
+});
 
-const title = document.getElementsByClassName ("title")
+let title = document.querySelector('.title')
 const shows = document.getElementsByClassName ('show')
 function checkWin (){
 if(letters.length === shows.length){
@@ -83,7 +86,19 @@ if(letters.length === shows.length){
 
 
 }else if(wrongAnswers > 4){
-  overLay.className = "lose";
+  
+   overLay.style.display = "flex"
+   title.textContent = "You lose"
+   overLay.className = "lose";
 }
 }
+
+function reset () {
+   btnReset.textContent = 'play again';
+   btnReset.addEventListener('click', ()=> {
+       location.reload();
+       startButton.style.transition = '3s';
+   });
+ 
+ }   
 console.log(randomWord)

@@ -82,7 +82,7 @@ button {
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  margin-right: 8px;
   margin-bottom: 5px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -96,6 +96,8 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  border: 5px solid brown;
+  transition: all 1s
 }
 
 /* Keyboard */
@@ -133,6 +135,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  transition: all 0s;
 }
 
 .title {
