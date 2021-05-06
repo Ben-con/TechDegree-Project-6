@@ -44,34 +44,46 @@ const randomWord = getRandomArray(words)
 addPhraseToDisplay(randomWord)
 
 
-const letters = document.querySelectorAll('.letter');
+const letters = document.getElementsByClassName('letter');
+
 const checkLetter = (button) => {
-   let right = "null"
-   for(i = 0;i < letters.length; i ++){
+   let right = null;
+   for(i = 0;i < letters.length; i++){
    if(button === letters[i].textContent.toLowerCase()){
-      letters[i].classList.add('show')
-      right = true
+      letters[i].classList.add('show');
+      right = true;
    }
-   
 }
-return right
+   return right;
+
 }
 const lives = document.querySelectorAll (".tries img")
-qwerty.addEventListener ('click', ev => {
-   if (ev.target.tagName === "BUTTON") {
-      ev.target.style.display = "none"
+
+qwerty.addEventListener ('click', (ev) => {
+   if(ev.target.tagName === "BUTTON"){
+      ev.target.className = 'chosen';
+      ev.target.style.display = "none";
       
-   }
       const match = checkLetter(ev.target.textContent.toLowerCase());
-      if (match === null) {
+   if(match === null){
+      lives[wrongAnswers].src = "images/lostHeart.png"
+      wrongAnswers++
+   }
+   checkWin()
+}});
 
-        
-        lives[wrongAnswers].src = 'images/lostHeart.png';
-        wrongAnswers++;
-      }
+const title = document.getElementsByClassName ("title")
+const shows = document.getElementsByClassName ('show')
+function checkWin (){
+if(letters.length === shows.length){
+   overLay.className = "win"
+   title.textContent = "You win"
+   overLay.style.display = "flex"
+   
 
 
-      
-
-});
+}else if(wrongAnswers > 4){
+  overLay.className = "lose";
+}
+}
 console.log(randomWord)
