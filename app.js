@@ -30,7 +30,6 @@ function addPhraseToDisplay(arr){
       const li = document.createElement("li")
       phrase.appendChild (li)
       li.textContent = arr[i]
-   
    if(arr[i]=== " "){
       li.className = "space"
    }else{
